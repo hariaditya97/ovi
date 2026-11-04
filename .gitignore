@@ -1,0 +1,15 @@
+# CMake and build outputs (DO NOT TRACK GENERATED BINARIES)
+build/
+bin/
+
+# macOS system files
+.DS_Store
+
+# VS Code settings (optional, keep if personal)
+.vscode/
+
+# Toolchain / SDK temporary imports if auto-generated
+*.uf2
+*.elf
+*.bin
+*.map
