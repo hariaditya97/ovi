@@ -1,6 +1,5 @@
 cmake_minimum_required(VERSION 3.13)
 
-# Target the Pico 2W board specifically
 set(PICO_BOARD pico2_w)
 
 include(pico_sdk_import.cmake)
@@ -12,13 +11,17 @@ set(CMAKE_CXX_STANDARD 17)
 
 pico_sdk_init()
 
-add_executable(ovi
-    main.c
-    ./hal/hal_gpio_pico.c
-
+# Add include directories so headers in hal/ and app/ can be referenced cleanly
+include_directories(
+    ${CMAKE_CURRENT_SOURCE_DIR}
 )
 
-# Link standard SDK + CYW43 driver for onboard LED
+add_executable(ovi
+    src/main.c
+    hal/hal_gpio_pico.c
+    app/power_state_machine.c
+)
+
 target_link_libraries(ovi
     pico_stdlib
     pico_cyw43_arch_none
