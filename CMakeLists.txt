@@ -14,6 +14,8 @@ pico_sdk_init()
 
 add_executable(ovi
     main.c
+    ./hal/hal_gpio_pico.c
+
 )
 
 # Link standard SDK + CYW43 driver for onboard LED
